@@ -60,9 +60,16 @@ Loom/Zoom: <this video for A1.mp4>
 ## Reflections
 ### Similarities
 - <brief bullets>
+- Both are realitvely user-friendly
+- Both platforms let you launch and manage VMs.
+- Both require secure login and authentication.
+- Both support scalability for enterprise workloads.
  
 ### Differences
 - <brief bullets>
-
+- GCP has a wider global presence.
+- OCI can be more cost-effective for certain workloads.
+- GCP integrates more smoothly with data analytics tools.
 ### Preference (OCI vs GCP) and Why
 - <one short paragraph>
+I prefer GCP as it is more self-explanatory and easier to navigate. While, operating over an ios it works smootholy while Oracle Cloud lags. GCP disbands smoothly when you cancel a machine and removes the storage faster than Oracle Cloud.
