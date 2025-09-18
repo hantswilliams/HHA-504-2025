@@ -1,7 +1,7 @@
 # VM Lifecycle on GCP and OCI — Tutorial
 
 ## Video
-Loom/Zoom: <paste link>
+Loom/Zoom: <this video for A1.mp4>
 
 ## Prereqs
 - Cloud access to GCP and OCI
@@ -18,18 +18,18 @@ Loom/Zoom: <paste link>
 5. Boot disk: default minimal
 6. Network: default VPC; ephemeral public IP
 
-![GCP create](images/gcp_create.png)
+![GCP create](screenshot 2025-09-17 at 9.26.42.PM.png)
 
 ### Start/Stop
 - Start: <state shows RUNNING>
 - Stop: <state shows TERMINATED/STOPPED>
 
-![GCP running](images/gcp_running.png)
+![GCP running](screenshot 2025-09-17 at 9.44.59PM.png)
 
 ### Delete
 - Delete instance and verify no disks/IPs remain
 
-![GCP cleaned](images/gcp_clean.png)
+![GCP cleaned](screenshot 2025-09-17 at 9:45:47PM.png)
 
 ---
 
@@ -60,7 +60,7 @@ Loom/Zoom: <paste link>
 ## Reflections
 ### Similarities
 - <brief bullets>
-
+ 
 ### Differences
 - <brief bullets>
 
