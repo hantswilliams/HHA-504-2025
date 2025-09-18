@@ -1,7 +1,7 @@
 # VM Lifecycle on GCP and OCI — Tutorial
 
 ## Video
-Loom/Zoom: <paste link>
+Loom/Zoom: <this video for A1.mp4>
 
 ## Prereqs
 - Cloud access to GCP and OCI
@@ -18,18 +18,18 @@ Loom/Zoom: <paste link>
 5. Boot disk: default minimal
 6. Network: default VPC; ephemeral public IP
 
-![GCP create](images/gcp_create.png)
+![GCP create](screenshot 2025-09-17 at 9.26.42.PM.png)
 
 ### Start/Stop
 - Start: <state shows RUNNING>
 - Stop: <state shows TERMINATED/STOPPED>
 
-![GCP running](images/gcp_running.png)
+![GCP running](screenshot 2025-09-17 at 9.44.59PM.png)
 
 ### Delete
 - Delete instance and verify no disks/IPs remain
 
-![GCP cleaned](images/gcp_clean.png)
+![GCP cleaned](screenshot 2025-09-17 at 9:45:47PM.png)
 
 ---
 
@@ -60,9 +60,16 @@ Loom/Zoom: <paste link>
 ## Reflections
 ### Similarities
 - <brief bullets>
-
+- Both are realitvely user-friendly
+- Both platforms let you launch and manage VMs.
+- Both require secure login and authentication.
+- Both support scalability for enterprise workloads.
+ 
 ### Differences
 - <brief bullets>
-
+- GCP has a wider global presence.
+- OCI can be more cost-effective for certain workloads.
+- GCP integrates more smoothly with data analytics tools.
 ### Preference (OCI vs GCP) and Why
 - <one short paragraph>
+I prefer GCP as it is more self-explanatory and easier to navigate. While, operating over an ios it works smootholy while Oracle Cloud lags. GCP disbands smoothly when you cancel a machine and removes the storage faster than Oracle Cloud.
