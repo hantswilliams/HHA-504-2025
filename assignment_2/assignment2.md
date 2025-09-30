@@ -63,9 +63,9 @@
    ```bash
    sudo apt update && sudo apt upgrade -y
    ```  
-3. **Install Python 3 + pip**:  
+3. **Install Git, Python 3 + pip**:  
    ```bash
-   sudo apt install python3 python3-pip -y
+   sudo apt install git python3 python3-pip python3.13-venv -y
    ```  
 
 ---
@@ -75,8 +75,19 @@
    ```bash
    git clone https://github.com/hantswilliams/HHA-504-2025-FlaskStarter.git
    cd flask_template
-   pip3 install -r requirements.txt
    ```  
+    Create new virutal environment: 
+    ```
+    python3 -m venv venv
+    ```
+    Then activate virtual environment:
+    ```
+    source venv/bin/activate
+    ```
+    Install: 
+    ```
+    pip install requirements.txt
+    ``` 
 2. **Run the app on port 5003**:  
    ```bash
    python3 app.py
