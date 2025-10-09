@@ -34,7 +34,7 @@ You must also record a brief walkthrough (2–4 minutes) showing deployment, a l
 ---
 
 ### 3) Deliverables
-- **Code repository (GitHub)** with a top‑level `README.md` and separate folders per cloud (e.g., `gcp/`, `azure/`, `oci/` as needed that will contain screenshots). Inside of this readme/github repo:   
+- **Code repository (GitHub)** called `504_serverless_functions` with a top‑level `README.md` and separate folders per cloud (e.g., `gcp/`, `azure/`, `oci/` as needed that will contain screenshots). Inside of this readme/github repo:   
     - Include a short section on the **Lab Rules**, starting with your chosen lab, the rule you implemented (plain English + formula/threshold), and a citation (journal/book/authoritative website with URL/DOI).
     - **Publicly accessible endpoint URLs** for each deployed function (paste into the README).  
     - **Recording (Zoom or Loom)** showing:
