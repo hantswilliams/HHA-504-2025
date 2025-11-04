@@ -39,7 +39,6 @@ print(f"[OK] Ensured database `{MAN_DB_NAME}` exists on managed instance.")
 
 # --- 2) Connect to the target database ---
 db_url = f"mysql+pymysql://{MAN_DB_USER}:{MAN_DB_PASS}@{MAN_DB_HOST}:{MAN_DB_PORT}/{MAN_DB_NAME}?ssl=false"
-print("[STEP 2] Connecting to DB:", db_url.replace(MAN_DB_PASS, "*****"))
 engine = create_engine(db_url, pool_pre_ping=True)
 
 # --- 3) Create a DataFrame and write to a table ---
