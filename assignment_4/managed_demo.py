@@ -13,7 +13,7 @@ from sqlalchemy import create_engine, text
 from dotenv import load_dotenv
 
 # --- 0) Load environment ---
-load_dotenv()  # reads .env in current working directory
+load_dotenv("assignment_4/.env")  # reads .env in current working directory
 
 MAN_DB_HOST = os.getenv("MAN_DB_HOST")
 MAN_DB_PORT = os.getenv("MAN_DB_PORT", "3306")
@@ -27,7 +27,7 @@ print("[ENV] MAN_DB_USER:", MAN_DB_USER)
 print("[ENV] MAN_DB_NAME:", MAN_DB_NAME)
 
 # --- 1) Connect to server (no DB) and ensure database exists ---
-server_url = f"mysql+pymysql://{MAN_DB_USER}:{MAN_DB_PASS}@{MAN_DB_HOST}:{MAN_DB_PORT}/"
+server_url = f"mysql+pymysql://{MAN_DB_USER}:{MAN_DB_PASS}@{MAN_DB_HOST}:{MAN_DB_PORT}/{MAN_DB_NAME}?ssl=false"
 print("[STEP 1] Connecting to Managed MySQL (no DB):", server_url.replace(MAN_DB_PASS, "*****"))
 t0 = time.time()
 
@@ -38,7 +38,7 @@ with engine_server.connect() as conn:
 print(f"[OK] Ensured database `{MAN_DB_NAME}` exists on managed instance.")
 
 # --- 2) Connect to the target database ---
-db_url = f"mysql+pymysql://{MAN_DB_USER}:{MAN_DB_PASS}@{MAN_DB_HOST}:{MAN_DB_PORT}/{MAN_DB_NAME}"
+db_url = f"mysql+pymysql://{MAN_DB_USER}:{MAN_DB_PASS}@{MAN_DB_HOST}:{MAN_DB_PORT}/{MAN_DB_NAME}?ssl=false"
 print("[STEP 2] Connecting to DB:", db_url.replace(MAN_DB_PASS, "*****"))
 engine = create_engine(db_url, pool_pre_ping=True)
 

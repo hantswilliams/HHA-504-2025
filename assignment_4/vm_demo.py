@@ -6,6 +6,9 @@
 # Env vars (populate a local .env):
 #   VM_DB_HOST, VM_DB_PORT, VM_DB_USER, VM_DB_PASS, VM_DB_NAME
 
+
+BROKEN NEED TO FIX HANTS! 
+
 import os, time
 from datetime import datetime
 import pandas as pd
@@ -13,13 +16,13 @@ from sqlalchemy import create_engine, text
 from dotenv import load_dotenv
 
 # --- 0) Load environment ---
-load_dotenv()  # reads .env in current working directory
+load_dotenv("assignment_4/.env")  # reads .env in current working directory
 
-VM_DB_HOST = os.getenv("VM_DB_HOST")
-VM_DB_PORT = os.getenv("VM_DB_PORT", "3306")
-VM_DB_USER = os.getenv("VM_DB_USER")
-VM_DB_PASS = os.getenv("VM_DB_PASS")
-VM_DB_NAME = os.getenv("VM_DB_NAME")
+VM_DB_HOST = os.getenv("MAN_DB_HOST")
+VM_DB_PORT = os.getenv("MAN_DB_PORT", "3306")
+VM_DB_USER = os.getenv("MAN_DB_USER")
+VM_DB_PASS = os.getenv("MAN_DB_PASS")
+VM_DB_NAME = os.getenv("MAN_DB_NAME")
 
 print("[ENV] VM_DB_HOST:", VM_DB_HOST)
 print("[ENV] VM_DB_PORT:", VM_DB_PORT)
@@ -27,7 +30,7 @@ print("[ENV] VM_DB_USER:", VM_DB_USER)
 print("[ENV] VM_DB_NAME:", VM_DB_NAME)
 
 # --- 1) Connect to server (no DB) and ensure database exists ---
-server_url = f"mysql+pymysql://{VM_DB_USER}:{VM_DB_PASS}@{VM_DB_HOST}:{VM_DB_PORT}/"
+server_url = f"mysql+pymysql://{VM_DB_USER}:{VM_DB_PASS}@{VM_DB_HOST}:{VM_DB_PORT}/hants?ssl=false"
 print("[STEP 1] Connecting to MySQL server (no DB):", server_url.replace(VM_DB_PASS, "*****"))
 t0 = time.time()
 
@@ -38,9 +41,10 @@ with engine_server.connect() as conn:
 print(f"[OK] Ensured database `{VM_DB_NAME}` exists.")
 
 # --- 2) Connect to the target database ---
-db_url = f"mysql+pymysql://{VM_DB_USER}:{VM_DB_PASS}@{VM_DB_HOST}:{VM_DB_PORT}/{VM_DB_NAME}"
+#### ignore ssl_connection for VM setup
+db_url = f"mysql+pymysql://{VM_DB_USER}:{VM_DB_PASS}@{VM_DB_HOST}:{VM_DB_PORT}/{VM_DB_NAME}?ssl=false"
 print("[STEP 2] Connecting to DB:", db_url.replace(VM_DB_PASS, "*****"))
-engine = create_engine(db_url, pool_pre_ping=True)
+engine = create_engine(db_url)
 
 # --- 3) Create a DataFrame and write to a table ---
 table_name = "visits"
@@ -53,10 +57,8 @@ df = pd.DataFrame(
         {"patient_id": 5, "visit_date": "2025-09-05", "bp_sys": 125, "bp_dia": 82},
     ]
 )
-print("[STEP 3] Writing DataFrame to table:", table_name)
-with engine.begin() as conn:
-    df.to_sql(table_name, con=conn, if_exists="replace", index=False)
-print("[OK] Wrote DataFrame to table.")
+
+df.to_sql(table_name, con=engine, if_exists="replace", index=False, connect_args={"ssl": {"ssl_disabled": True}})
 
 # --- 4) Read back a quick check ---
 print("[STEP 4] Reading back row count ...")
