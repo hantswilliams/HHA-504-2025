@@ -78,6 +78,10 @@ You may:
 - Use a hand-drawn diagram and save as `architecture_diagram.png` or `.jpg`, **or**
 - Use text-based diagramming (e.g., Mermaid) embedded in your markdown.
 
+Think about using:
+- Figma 
+- Miro 
+
 Deliverable files:
 
 - `architecture_diagram.png` (or `.jpg`)  
